@@ -1,0 +1,73 @@
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+// Global variables
+string customerName;
+double unitsConsumed;
+double ratePerUnit = 50;
+double totalBill, discount, finalAmount;
+
+// i. Function to get customer details
+void getCustomerDetails() {
+    cout << "Enter Customer Name: ";
+    getline(cin, customerName);
+
+    cout << "Enter Units Consumed: ";
+    cin >> unitsConsumed;
+}
+
+// ii. Function to calculate water bill
+void calculateBill() {
+    totalBill = unitsConsumed * ratePerUnit;
+}
+
+// iii. Function to apply 10% discount
+void applyDiscount() {
+    if (unitsConsumed > 100) {
+        discount = totalBill * 0.10;
+    }
+    else {
+        discount = 0;
+    }
+
+    finalAmount = totalBill - discount;
+}
+
+// iv. Function to display water bill
+void displayBill() {
+    cout << fixed << setprecision(2);
+
+    cout << "\n==================================" << endl;
+    cout << "         MONTHLY WATER BILL       " << endl;
+    cout << "==================================" << endl;
+
+    cout << "Customer Name: " << customerName << endl;
+    cout << "Units Consumed: " << unitsConsumed << endl;
+    cout << "Rate Per Unit: KSh " << ratePerUnit << endl;
+    cout << "----------------------------------" << endl;
+
+    cout << "Total Bill: KSh " << totalBill << endl;
+    cout << "Discount: KSh " << discount << endl;
+    cout << "----------------------------------" << endl;
+
+    cout << "Final Amount Payable: KSh "
+         << finalAmount << endl;
+
+    cout << "==================================" << endl;
+}
+
+// v. Main function
+int main() {
+    getCustomerDetails();
+
+    calculateBill();
+
+    applyDiscount();
+
+    displayBill();
+
+    return 0;
+}
