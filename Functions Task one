@@ -1,0 +1,65 @@
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+// Global variables
+string employeeName;
+double basicSalary, overtimeHours;
+double ratePerHour = 200;
+double overtimePay, netSalary;
+
+// i. Function to get employee details
+void getEmployeeDetails() {
+    cout << "Enter Employee Name: ";
+    getline(cin, employeeName);
+
+    cout << "Enter Basic Salary: ";
+    cin >> basicSalary;
+
+    cout << "Enter Overtime Hours: ";
+    cin >> overtimeHours;
+}
+
+// ii. Function to calculate overtime pay
+void calculateOvertimePay() {
+    overtimePay = overtimeHours * ratePerHour;
+}
+
+// iii. Function to calculate net salary
+void calculateNetSalary() {
+    netSalary = basicSalary + overtimePay;
+}
+
+// iv. Function to display payslip
+void displayPayslip() {
+    cout << "\n==================================" << endl;
+    cout << "          EMPLOYEE PAYSLIP        " << endl;
+    cout << "==================================" << endl;
+
+    cout << fixed << setprecision(2);
+
+    cout << "Employee Name:  " << employeeName << endl;
+    cout << "Basic Salary:   " << basicSalary << endl;
+    cout << "Overtime Hours: " << overtimeHours << endl;
+    cout << "Rate Per Hour:  " << ratePerHour << endl;
+    cout << "Overtime Pay:   " << overtimePay << endl;
+
+    cout << "----------------------------------" << endl;
+    cout << "Net Salary:     " << netSalary << endl;
+    cout << "==================================" << endl;
+}
+
+// v. Main function
+int main() {
+    getEmployeeDetails();
+
+    calculateOvertimePay();
+
+    calculateNetSalary();
+
+    displayPayslip();
+
+    return 0;
+}
